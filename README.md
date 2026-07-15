@@ -4,7 +4,7 @@ Submitted by: **Beryl Ghany**
 
 This web app: **a data dashboard of adventure, travel, and exploration books pulled live from the Open Library API.** Users browse volumes under a chosen subject heading, explore two charts about publication era and leading themes, and open a routed detail page for each book with extra bibliographic info.
 
-Time spent: **X** hours spent in total
+Time spent: **3** hours spent in total
 
 ## Required Features
 
@@ -41,9 +41,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/inxkHRw"  ><a href="//imgur.com/a/inxkHRw">Library2</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<img src='https://imgur.com/a/inxkHRw' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<!-- Replace the img src above with your hosted GIF URL after you record it! -->
+
 GIF created with ScreenToGif
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
