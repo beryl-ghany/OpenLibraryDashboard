@@ -1,87 +1,72 @@
-# Web Development Project 5 - The Expedition Shelf
+# The Expedition Shelf — Part 2
 
-Submitted by: **Beryl Ghany**
+Submitted by: Beryl Ghany
 
-**The Expedition Shelf** is a React dashboard that explores books from the Open Library API. The application presents a curated "expedition shelf" of books under subjects such as Adventure, Travel, Exploration, Sea Stories, and Mountaineering. Users can explore the collection through interactive summary statistics, live search, and multiple filters to discover interesting patterns within the catalog.
+**The Expedition Shelf** is a data dashboard of books catalogued under a
+chosen subject heading (Adventure, Travel, Exploration, Sea Stories,
+Mountaineering), pulled live from the Open Library API. Part 2 adds two
+charts to the dashboard, a routed detail view per book with extra
+information, and a shared sidebar across both views.
 
-Time spent: **2.5** hours spent in total
-
----
+Time spent: **X** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [x] **The site has a dashboard displaying a list of data fetched using an API call**
-  - [x] The dashboard displays over 100 unique books, one per row
-  - [x] Each row includes multiple attributes such as title, author, publication year, edition count, and subject tags
-- [x] **`useEffect` React hook and `async`/`await` are used**
-- [x] **The app dashboard includes at least three summary statistics about the data**
-  - [x] Total Volumes Catalogued
-  - [x] Average Publication Year
-  - [x] Best-Represented Decade
-  - [x] Combined Editions in Print (Bonus)
-- [x] **A search bar allows the user to search for an item in the fetched data**
-  - [x] Results update dynamically while typing
-  - [x] Only matching titles are displayed
-- [x] **An additional filter allows the user to restrict displayed items by specified categories**
-  - [x] Filter by publication era
-  - [x] Filter by book themes
-  - [x] Filter by minimum editions in print
-  - [x] Results update instantly whenever filters change
-
----
-
-## Optional Features
+- [x] Clicking on an item in the list view displays more details about it
+- [x] Clicking on an item in the dashboard list navigates to the detail view for that item
+- [x] Detail view includes extra information not included in the dashboard view (full description, publishers on record, languages printed in, earliest edition found, complete theme list, link to Open Library)
+- [x] The same sidebar is displayed in detail view as in dashboard view
+- [x] Each detail view of an item has a direct, unique link to that item's page (`/book/:olid`)
+- [x] The app includes at least two unique charts developed using the fetched data that tell an interesting story
+  - [x] Chart 1: Volumes surfacing by decade (bar) / running total across decades (line)
+  - [x] Chart 2: Leading themes on the shelf (horizontal bar of top tag frequency)
+- [x] At least two charts are incorporated into the dashboard view of the site
+- [x] Each chart describes a different aspect of the dataset (publication era vs. subject/theme distribution)
 
 The following **optional** features are implemented:
 
-- [x] Multiple filters can be applied simultaneously
-- [x] Multiple filter input types
-  - Dropdown menus
-  - Range slider
-  - Text search
-- [x] Users can specify minimum edition counts using a slider
-
----
-
-## Additional Features
-
-The following **additional** features are implemented:
-
-- [x] Subject switcher that reloads the dashboard using different Open Library subject collections
-- [x] Automatically generated theme filter based on the current API response
-- [x] Custom explorer-inspired interface with responsive layout
-- [x] Dynamic summary statistics that recalculate whenever the subject changes
-
----
+- [x] The site's customized dashboard contains more content that explains what is interesting about the data (annotation line under each chart calling out the busiest decade / leading theme)
+- [x] The site allows users to toggle between different data visualizations (decade chart toggles between a bar view and a cumulative line view)
 
 ## Video Walkthrough
 
-Here's a walkthrough of the implemented user stories:
+Here's a walkthrough of implemented user stories:
 
-<p align="center">
-<a href="https://imgur.com/a/EG5rg0u">
-<img src="https://i.imgur.com/EG5rg0u.gif" alt="Video Walkthrough" width="900">
-</a>
-</p>
+<!-- Replace this line with a GIF walkthrough of your app. Tools like Kap, ScreenToGif, or LiceCap can help you record one. -->
 
-**GIF Walkthrough:** https://imgur.com/a/EG5rg0u
-
-GIF created with **ScreenToGif**
-
----
+GIF created with ...
 
 ## Notes
 
-Some challenges encountered while building this project included:
+Describe any challenges encountered while building the app, e.g.:
 
-- The Open Library API does not always provide complete metadata. Some books are missing publication years, subjects, or edition counts, so the dashboard gracefully ignores missing values when calculating statistics.
-- The theme filter is generated dynamically from the subjects returned by the API, ensuring users only see relevant filter options.
-- Computing statistics such as the average publication year and most common decade required processing the fetched data before rendering the dashboard.
-- Combining multiple filters while maintaining responsive performance required careful ordering of the filtering logic.
+- The Open Library subject endpoint (used for the dashboard list) and the
+  work endpoint (used for the detail view) return different shapes, so the
+  detail page re-fetches from `/works/{id}.json` plus `/works/{id}/editions.json`
+  rather than relying on the summary data already in the list.
+- `description` on a work can come back as either a plain string or an
+  object with a `value` field, so it's normalized before rendering.
+- React Router's `useLocation().state` is used to pass along which subject
+  heading a book was clicked from, so the back link returns to the right
+  shelf.
 
----
+## License
+
+    Copyright [yyyy] [name of copyright owner]
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
 
 ## Setup
 
@@ -90,19 +75,4 @@ npm install
 npm run dev
 ```
 
-Then open the local URL printed by Vite in your browser.
-
----
-
-## License
-
-Copyright 2026 Beryl Ghany
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+Then open the local URL Vite prints in your terminal.
