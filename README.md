@@ -1,12 +1,8 @@
-# The Expedition Shelf — Part 2
+# Web Development Project 6 - *The Expedition Shelf*
 
-Submitted by: Beryl Ghany
+Submitted by: **Beryl Ghany**
 
-**The Expedition Shelf** is a data dashboard of books catalogued under a
-chosen subject heading (Adventure, Travel, Exploration, Sea Stories,
-Mountaineering), pulled live from the Open Library API. Part 2 adds two
-charts to the dashboard, a routed detail view per book with extra
-information, and a shared sidebar across both views.
+This web app: **a data dashboard of adventure, travel, and exploration books pulled live from the Open Library API.** Users browse volumes under a chosen subject heading, explore two charts about publication era and leading themes, and open a routed detail page for each book with extra bibliographic info.
 
 Time spent: **X** hours spent in total
 
@@ -14,47 +10,55 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-- [x] Clicking on an item in the list view displays more details about it
-- [x] Clicking on an item in the dashboard list navigates to the detail view for that item
-- [x] Detail view includes extra information not included in the dashboard view (full description, publishers on record, languages printed in, earliest edition found, complete theme list, link to Open Library)
-- [x] The same sidebar is displayed in detail view as in dashboard view
-- [x] Each detail view of an item has a direct, unique link to that item's page (`/book/:olid`)
-- [x] The app includes at least two unique charts developed using the fetched data that tell an interesting story
-  - [x] Chart 1: Volumes surfacing by decade (bar) / running total across decades (line)
-  - [x] Chart 2: Leading themes on the shelf (horizontal bar of top tag frequency)
-- [x] At least two charts are incorporated into the dashboard view of the site
-- [x] Each chart describes a different aspect of the dataset (publication era vs. subject/theme distribution)
+- [x] **Clicking on an item in the list view displays more details about it**
+  - Clicking on an item in the dashboard list navigates to a detail view for that item
+  - Detail view includes extra information about the item not included in the dashboard view (full description, publishers, languages, earliest edition year, full theme list, and a link to Open Library)
+  - The same sidebar is displayed in detail view as in dashboard view
+  - *To ensure an accurate grade, your sidebar **must** be viewable when showing the details view in your recording.*
+- [x] **Each detail view of an item has a direct, unique URL link to that item’s detail view page**
+  - Each book uses a unique route: `/book/:olid`
+  - *To ensure an accurate grade, the URL/address bar of your web browser **must** be viewable in your recording.*
+- [x] **The app includes at least two unique charts developed using the fetched data that tell an interesting story**
+  - At least two charts should be incorporated into the dashboard view of the site
+  - Each chart should describe a different aspect of the dataset
+  - Chart 1: Volumes surfacing by decade (bar) / running total across decades (line)
+  - Chart 2: Leading themes on the shelf (horizontal bar of top tag frequency)
 
 The following **optional** features are implemented:
 
-- [x] The site's customized dashboard contains more content that explains what is interesting about the data (annotation line under each chart calling out the busiest decade / leading theme)
-- [x] The site allows users to toggle between different data visualizations (decade chart toggles between a bar view and a cumulative line view)
+- [x] The site’s customized dashboard contains more content that explains what is interesting about the data
+  - Stats row (volumes, average year, busiest decade, total editions) plus annotation lines under each chart calling out the busiest decade and leading theme
+- [x] The site allows users to toggle between different data visualizations
+  - Decade chart toggles between a bar view (“By decade”) and a cumulative line view (“Running total”)
+
+The following **additional** features are implemented:
+
+* [x] Switch subject headings from the sidebar (Adventure, Travel, Exploration, Sea Stories, Mountaineering) to refetch and rescope the shelf
+* [x] Search / filter controls on the dashboard list to narrow the visible volumes
+* [x] Detail page re-fetches work + editions data from Open Library for richer fields than the list summary
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<!-- Replace this line with a GIF walkthrough of your app. Tools like Kap, ScreenToGif, or LiceCap can help you record one. -->
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with ...
+<!-- Replace the img src above with your hosted GIF URL after you record it! -->
+GIF created with ScreenToGif
+<!-- Recommended tools:
+[Kap](https://getkap.co/) for macOS
+[ScreenToGif](https://www.screentogif.com/) for Windows
+[peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
 
-Describe any challenges encountered while building the app, e.g.:
-
-- The Open Library subject endpoint (used for the dashboard list) and the
-  work endpoint (used for the detail view) return different shapes, so the
-  detail page re-fetches from `/works/{id}.json` plus `/works/{id}/editions.json`
-  rather than relying on the summary data already in the list.
-- `description` on a work can come back as either a plain string or an
-  object with a `value` field, so it's normalized before rendering.
-- React Router's `useLocation().state` is used to pass along which subject
-  heading a book was clicked from, so the back link returns to the right
-  shelf.
+- The Open Library subject endpoint (used for the dashboard list) and the work endpoint (used for the detail view) return different shapes, so the detail page re-fetches from `/works/{id}.json` plus `/works/{id}/editions.json` rather than relying on the summary data already in the list.
+- `description` on a work can come back as either a plain string or an object with a `value` field, so it's normalized before rendering.
+- React Router's `useLocation().state` is used to pass along which subject heading a book was clicked from, so the back link returns to the right shelf.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2026 Beryl Ghany
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
